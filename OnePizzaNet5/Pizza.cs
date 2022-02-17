@@ -2,8 +2,12 @@
 
 namespace OnePizzaNet5
 {
+    using System;
+
     public class Pizza
     {
-        public List<string> Ingredients { get; set; }
+        public List<string> Ingredients { get; set; } = new();
+
+        public int Rating { get; set; }
     }
 }
