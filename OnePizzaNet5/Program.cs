@@ -14,13 +14,24 @@ namespace OnePizzaNet5
         }
 
 
-        static List<Client> Parse(string[] args) => 
+        static List<Client> Parse(string[] args) =>
             FileReader.Get(args[0]);
 
         static Pizza FindBestPizza(List<Client> clients)
         {
+            var bestPizza = CreatePizzaFromClients(clients);
+            bestPizza = DoMagic(bestPizza);
+            return bestPizza;
+        }
+
+        private static Pizza DoMagic(Pizza bestPizza)
+        {
             throw new NotImplementedException();
         }
 
+        private static Pizza CreatePizzaFromClients(List<Client> clients)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
