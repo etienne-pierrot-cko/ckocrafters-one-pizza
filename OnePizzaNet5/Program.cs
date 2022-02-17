@@ -8,9 +8,6 @@ namespace OnePizzaNet5
     {
         static void Main(string[] args)
         {
-
-
-
             var clients = Parse(args);
             var pizza = FindBestPizza(clients);
             PizzaDumper.DumpBestPizzaToFile(pizza);
@@ -26,8 +23,6 @@ namespace OnePizzaNet5
         {
             throw new NotImplementedException();
         }
-
-
 
     }
 }
