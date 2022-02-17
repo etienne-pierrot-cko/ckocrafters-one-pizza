@@ -8,6 +8,6 @@ namespace OnePizzaNet5
     {
         public List<string> Ingredients { get; set; } = new();
 
-        public int Rate { get; set; }
+        public int Rating { get; set; }
     }
 }
