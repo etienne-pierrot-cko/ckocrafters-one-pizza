@@ -33,7 +33,16 @@ public class PizzaComparer : IEqualityComparer<Pizza>
 
     public int GetHashCode(Pizza obj)
     {
-        var p = HashCode.Combine(obj.Ingredients.Select(y => y.GetHashCode()).ToArray());
+        var p = GetOrderIndependentHashCode(obj.Ingredients);
         return p;
+    }
+    private static int GetOrderIndependentHashCode<T>(IEnumerable<T> source)
+    {
+        int hash = 0;
+        foreach (T element in source)
+        {
+            hash = hash ^ EqualityComparer<T>.Default.GetHashCode(element);
+        }
+        return hash;
     }
 }
