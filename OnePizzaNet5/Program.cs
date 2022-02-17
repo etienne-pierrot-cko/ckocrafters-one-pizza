@@ -34,9 +34,9 @@ namespace OnePizzaNet5
             throw new NotImplementedException();
         }
 
-        public static int RatePizza(Pizza pizza, List<Client> clients)
+        public static void RatePizza(Pizza pizza, List<Client> clients)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
