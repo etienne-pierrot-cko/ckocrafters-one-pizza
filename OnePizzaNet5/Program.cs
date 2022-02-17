@@ -20,8 +20,8 @@ namespace OnePizzaNet5
 
         static Pizza FindBestPizza(List<Client> clients)
         {
-            var bestPizza = CreatePizzaFromClients(clients);
-            RatePizza(bestPizza, clients);
+            var bestPizza = PizzaCreator.CreatePizzaFromClients(clients);
+            PizzaRater.RatePizza(bestPizza, clients);
             bestPizza = DoMagic(bestPizza);
             return bestPizza;
         }
@@ -37,11 +37,6 @@ namespace OnePizzaNet5
             {
                 Ingredients = clients.SelectMany(x => x.Likes).Distinct().ToList()
             };
-        }
-
-        public static void RatePizza(Pizza pizza, List<Client> clients)
-        {
-
         }
     }
 }
