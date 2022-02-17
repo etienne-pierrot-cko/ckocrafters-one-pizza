@@ -7,8 +7,7 @@
     {
         public static HashSet<Pizza> AllPizzasFromBestPizzaMinusOneIngredient(Pizza largestPizza)
         {
-            var combinations = new HashSet<Pizza>(new PizzaComparer());
-            combinations.Add(largestPizza);
+            var combinations = new HashSet<Pizza>(new PizzaComparer()) { largestPizza };
             var stack = new Stack<Pizza>();
             stack.Push(largestPizza);
             while (stack.Count > 0)
@@ -16,8 +15,11 @@
                 var pizzas = PizzasFromPizzaMinusOneIngredient(stack.Pop());
                 if (pizzas == null)
                     continue;
+                foreach (Pizza pizza in pizzas)
+                {
+                    combinations.Add(pizza);
+                }
 
-                combinations.UnionWith(pizzas);
                 foreach (Pizza pizza in pizzas)
                 {
                     stack.Push(pizza);

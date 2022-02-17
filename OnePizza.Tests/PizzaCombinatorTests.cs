@@ -68,6 +68,13 @@
         [Fact]
         public void GivenAllIngredients_ReturnsAllTheCombinationsPizzas()
         {
+            var ap4 = new Pizza() { Ingredients = new List<string>() { "egg" } };
+            var bp4 = new Pizza() { Ingredients = new List<string>() { "egg" } };
+            var c = new PizzaComparer();
+            var t = c.GetHashCode(ap4);
+            var t2 = c.GetHashCode(bp4);
+            var x = c.Equals(ap4, bp4);
+
             var from = new Pizza() { Ingredients = new List<string>() { "pepper", "egg", "cheese" } };
             var to = PizzaCombinator.AllPizzasFromBestPizzaMinusOneIngredient(from);
             var p1 = new Pizza() { Ingredients = new List<string>() { "pepper", "egg" } };
@@ -76,7 +83,7 @@
             var p4 = new Pizza() { Ingredients = new List<string>() { "egg" } };
             var p5 = new Pizza() { Ingredients = new List<string>() { "cheese" } };
             var p6 = new Pizza() { Ingredients = new List<string>() { "pepper" } };
-            var expected = new HashSet<Pizza>(new PizzaComparer()) { from, p1, p2, p3, p4, p5, p6 };
+            var expected = new HashSet<Pizza>() { from, p1, p2, p3, p4, p5, p6 };
             to.Should().BeEquivalentTo(expected);
         }
     }
