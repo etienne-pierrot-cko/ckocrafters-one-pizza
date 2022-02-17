@@ -1,10 +1,30 @@
 ﻿namespace OnePizzaNet5
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     public static class PizzaCombinator
     {
-        public static List<Pizza> AllPizzasFromBestPizzaMinusOneIngredient(Pizza pizza)
+        public static HashSet<Pizza> AllPizzasFromBestPizzaMinusOneIngredient(Pizza largestPizza)
+        {
+            var combinations = new HashSet<Pizza>();
+            combinations.Add(largestPizza);
+            var stack = new Stack<Pizza>();
+            stack.Push(largestPizza);
+            while (stack.Count > 0)
+            {
+                var pizzas = PizzasFromPizzaMinusOneIngredient(stack.Pop());
+                combinations.UnionWith(pizzas);
+                foreach (Pizza pizza in pizzas)
+                {
+                    stack.Push(pizza);
+                }
+            }
+
+            return combinations;
+        }
+
+        private static List<Pizza> PizzasFromPizzaMinusOneIngredient(Pizza pizza)
         {
             if (pizza.Ingredients.Count == 1)
             {
