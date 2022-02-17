@@ -6,7 +6,7 @@ namespace OnePizzaNet5
     public class PizzaRater
     {
 
-        public static void RatePizza(Pizza pizza, List<Client> clients)
+        public static int RatePizza(Pizza pizza, List<Client> clients)
         {
             foreach (var client in clients)
             {
@@ -20,6 +20,8 @@ namespace OnePizzaNet5
                     pizza.Rating += 1;
                 }
             }
+
+            return pizza.Rating;
         }
     }
 }
