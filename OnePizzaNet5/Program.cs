@@ -4,6 +4,8 @@ namespace OnePizzaNet5
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
 
     internal class Program
     {
@@ -12,6 +14,7 @@ namespace OnePizzaNet5
             var clients = Parse(args);
             var pizza = FindBestPizza(clients);
             PizzaDumper.DumpBestPizzaToFile(pizza);
+            Console.WriteLine(JsonSerializer.Serialize(pizza));
         }
 
 
@@ -20,23 +23,19 @@ namespace OnePizzaNet5
 
         static Pizza FindBestPizza(List<Client> clients)
         {
-            var bestPizza = PizzaCreator.CreatePizzaFromClients(clients);
-            PizzaRater.RatePizza(bestPizza, clients);
-            bestPizza = DoMagic(bestPizza);
-            return bestPizza;
+            var firstPizza = PizzaCreator.CreatePizzaFromClients(clients);
+            return GetBestPizzaFromAllCombinations(firstPizza, clients);
         }
 
-        private static Pizza DoMagic(Pizza bestPizza)
+        private static Pizza GetBestPizzaFromAllCombinations(Pizza bestPizza, List<Client> clients)
         {
-            throw new NotImplementedException();
-        }
-
-        private static Pizza CreatePizzaFromClients(List<Client> clients)
-        {
-            return new Pizza()
+            var allCombinations = PizzaCombinator.AllPizzasFromBestPizzaMinusOneIngredient(bestPizza);
+            foreach (Pizza pizza in allCombinations)
             {
-                Ingredients = clients.SelectMany(x => x.Likes).Distinct().ToList()
-            };
+                PizzaRater.RatePizza(pizza, clients);
+            }
+
+            return allCombinations.OrderByDescending(x => x.Rating).First();
         }
     }
 }
