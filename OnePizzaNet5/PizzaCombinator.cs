@@ -4,14 +4,20 @@
 
     public static class PizzaCombinator
     {
-        public static HashSet<Pizza> AllPizzasFromBestPizzaMinusOneIngredient(Pizza largestPizza)
+        public static HashSet<Pizza> AllPizzasFromBestPizzaMinusOneIngredient(Pizza largestPizza, int ingridientsCountStop)
         {
             var combinations = new HashSet<Pizza>(new PizzaComparer()) { largestPizza };
             var stack = new Stack<Pizza>();
             stack.Push(largestPizza);
             while (stack.Count > 0)
             {
-                var pizzas = PizzasFromPizzaMinusOneIngredient(stack.Pop());
+                var pop = stack.Pop();
+                if (ingridientsCountStop <= pop.Ingredients.Count)
+                {
+                    continue;
+                }
+
+                var pizzas = PizzasFromPizzaMinusOneIngredient(pop);
                 if (pizzas == null)
                     continue;
                 foreach (Pizza pizza in pizzas)

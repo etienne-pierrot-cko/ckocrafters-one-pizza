@@ -29,7 +29,8 @@ namespace OnePizzaNet5
 
         private static Pizza GetBestPizzaFromAllCombinations(Pizza bestPizza, List<Client> clients)
         {
-            var allCombinations = PizzaCombinator.AllPizzasFromBestPizzaMinusOneIngredient(bestPizza);
+            var ingridientsCountStop = clients.Min(x => x.Likes.Count());
+            var allCombinations = PizzaCombinator.AllPizzasFromBestPizzaMinusOneIngredient(bestPizza, ingridientsCountStop);
             foreach (Pizza pizza in allCombinations)
             {
                 PizzaRater.RatePizza(pizza, clients);

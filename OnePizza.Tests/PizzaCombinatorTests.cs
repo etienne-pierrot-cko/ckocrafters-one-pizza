@@ -76,7 +76,7 @@
             var x = c.Equals(ap4, bp4);
 
             var from = new Pizza() { Ingredients = new List<string>() { "pepper", "egg", "cheese" } };
-            var to = PizzaCombinator.AllPizzasFromBestPizzaMinusOneIngredient(from);
+            var to = PizzaCombinator.AllPizzasFromBestPizzaMinusOneIngredient(@from, 1);
             var p1 = new Pizza() { Ingredients = new List<string>() { "pepper", "egg" } };
             var p2 = new Pizza() { Ingredients = new List<string>() { "pepper", "cheese" } };
             var p3 = new Pizza() { Ingredients = new List<string>() { "egg", "cheese" } };

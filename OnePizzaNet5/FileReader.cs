@@ -26,8 +26,8 @@
             {
                 clients.Add(new Client()
                 {
-                    Likes = new List<string>(content[clientIndex].Split(Delimiter)),
-                    Dislikes = new List<string>(content[clientIndex + 1].Split(Delimiter))
+                    Likes = new List<string>(content[clientIndex].Split(Delimiter).Skip(1)),
+                    Dislikes = new List<string>(content[clientIndex + 1].Split(Delimiter).Skip(1))
                 });
             }
 
