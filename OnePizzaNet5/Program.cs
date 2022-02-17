@@ -3,6 +3,7 @@
 namespace OnePizzaNet5
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     internal class Program
     {
@@ -20,6 +21,7 @@ namespace OnePizzaNet5
         static Pizza FindBestPizza(List<Client> clients)
         {
             var bestPizza = CreatePizzaFromClients(clients);
+            RatePizza(bestPizza, clients);
             bestPizza = DoMagic(bestPizza);
             return bestPizza;
         }
@@ -31,12 +33,15 @@ namespace OnePizzaNet5
 
         private static Pizza CreatePizzaFromClients(List<Client> clients)
         {
-            throw new NotImplementedException();
+            return new Pizza()
+            {
+                Ingredients = clients.SelectMany(x => x.Likes).Distinct().ToList()
+            };
         }
 
         public static void RatePizza(Pizza pizza, List<Client> clients)
         {
-            
+
         }
     }
 }
