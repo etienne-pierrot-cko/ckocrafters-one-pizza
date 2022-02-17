@@ -14,6 +14,9 @@
             while(stack.Count > 0)
             {
                 var pizzas = PizzasFromPizzaMinusOneIngredient(stack.Pop());
+                if(pizzas == null)
+                    continue;
+                
                 combinations.UnionWith(pizzas);
                 foreach (Pizza pizza in pizzas)
                 {
@@ -24,7 +27,7 @@
             return combinations;
         }
 
-        private static List<Pizza> PizzasFromPizzaMinusOneIngredient(Pizza pizza)
+        public static List<Pizza> PizzasFromPizzaMinusOneIngredient(Pizza pizza)
         {
             if (pizza.Ingredients.Count == 1)
             {
