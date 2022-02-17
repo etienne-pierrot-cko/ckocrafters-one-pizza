@@ -6,7 +6,7 @@ namespace OnePizzaNet5
 
     public class Pizza
     {
-        public HashSet<string> Ingredients { get; set; } = new();
+        public List<string> Ingredients { get; set; } = new();
 
         public int Rating { get; set; }
     }

@@ -7,9 +7,15 @@ namespace OnePizzaNet5
     {
         public static Pizza CreatePizzaFromClients(List<Client> clients)
         {
+            var hash = new HashSet<string>();
+            foreach (var like in clients.SelectMany(client => client.Likes))
+            {
+                hash.Add(like);
+            }
+
             return new Pizza()
             {
-                Ingredients = clients.SelectMany(x => x.Likes).Distinct().ToList()
+                Ingredients = hash.ToList()
             };
         }
     }
