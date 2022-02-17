@@ -8,19 +8,14 @@ namespace OnePizzaNet5
     {
         static void Main(string[] args)
         {
-
-
-
             var clients = Parse(args);
             var pizza = FindBestPizza(clients);
             PizzaDumper.DumpBestPizzaToFile(pizza);
         }
 
 
-        static List<Client> Parse(string[] args)
-        {
-            throw new NotImplementedException();
-        }
+        static List<Client> Parse(string[] args) => 
+            FileReader.Get(args[0]);
 
         static Pizza FindBestPizza(List<Client> clients)
         {
