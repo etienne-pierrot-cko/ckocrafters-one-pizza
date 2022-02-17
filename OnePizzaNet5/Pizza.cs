@@ -6,6 +6,6 @@ namespace OnePizzaNet5
 
     public class Pizza
     {
-        public List<string> Ingredients { get; set; }
+        public List<string> Ingredients { get; set; } = new();
     }
 }

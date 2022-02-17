@@ -26,9 +26,8 @@
             to.Should().BeEquivalentTo(expected);
         }
 
-
         [Fact]
-        public void GivenPizzaWithThreeIngredients_ReturnsTwoPizzas()
+        public void GivenPizzaWithThreeIngredients_ReturnsThreePizzas()
         {
             var from = new Pizza() { Ingredients = new List<string>() { "pepper", "egg", "cheese" } };
             var to = PizzaCombinator.AllPizzasFromBestPizzaMinusOneIngredient(from);
@@ -36,6 +35,33 @@
             var p2 = new Pizza() { Ingredients = new List<string>() { "pepper", "cheese" } };
             var p3 = new Pizza() { Ingredients = new List<string>() { "egg", "cheese" } };
             var expected = new List<Pizza>() { p1, p2, p3 };
+            to.Should().BeEquivalentTo(expected);
+        }
+
+        [Fact]
+        public void GivenPizzaWithFourIngredients_ReturnsFourPizzas()
+        {
+            var from = new Pizza() { Ingredients = new List<string>() { "A", "B", "C", "D" } };
+            var to = PizzaCombinator.AllPizzasFromBestPizzaMinusOneIngredient(from);
+            var p1 = new Pizza() { Ingredients = new List<string>() { "A", "B", "C" } };
+            var p2 = new Pizza() { Ingredients = new List<string>() { "A", "B", "D" } };
+            var p3 = new Pizza() { Ingredients = new List<string>() { "A", "C", "D" } };
+            var p4 = new Pizza() { Ingredients = new List<string>() { "B", "C", "D" } };
+            var expected = new List<Pizza>() { p1, p2, p3, p4 };
+            to.Should().BeEquivalentTo(expected);
+        }
+
+        [Fact]
+        public void GivenPizzaWithFiveIngredients_ReturnsFourPizzas()
+        {
+            var from = new Pizza() { Ingredients = new List<string>() { "A", "B", "C", "D", "E" } };
+            var to = PizzaCombinator.AllPizzasFromBestPizzaMinusOneIngredient(from);
+            var p1 = new Pizza() { Ingredients = new List<string>() { "A", "B", "C", "D" } };
+            var p2 = new Pizza() { Ingredients = new List<string>() { "A", "B", "C", "E" } };
+            var p3 = new Pizza() { Ingredients = new List<string>() { "A", "B", "D", "E" } };
+            var p4 = new Pizza() { Ingredients = new List<string>() { "A", "C", "D", "E" } };
+            var p5 = new Pizza() { Ingredients = new List<string>() { "B", "C", "D", "E" } };
+            var expected = new List<Pizza>() { p1, p2, p3, p4, p5 };
             to.Should().BeEquivalentTo(expected);
         }
     }
