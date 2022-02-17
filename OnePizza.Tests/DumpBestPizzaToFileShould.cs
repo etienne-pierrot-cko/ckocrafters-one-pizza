@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using Xunit;
     using FluentAssertions;
+    using OnePizzaNet5;
     using System.IO;
 
     public class DumpBestPizzaToFileShould

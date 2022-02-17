@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnePizza", "OnePizza\OnePizza.csproj", "{F768F9A0-AD97-4E6D-8273-BF6EC10ADE64}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnePizza.Tests", "OnePizza.Tests\OnePizza.Tests.csproj", "{DDC3D2C5-9A4E-423A-8BA4-08378AFC887D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnePizzaNet5", "OnePizzaNet5\OnePizzaNet5.csproj", "{009EAE72-ACCF-4A3D-B0C9-5FB728823179}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F768F9A0-AD97-4E6D-8273-BF6EC10ADE64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F768F9A0-AD97-4E6D-8273-BF6EC10ADE64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F768F9A0-AD97-4E6D-8273-BF6EC10ADE64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F768F9A0-AD97-4E6D-8273-BF6EC10ADE64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DDC3D2C5-9A4E-423A-8BA4-08378AFC887D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DDC3D2C5-9A4E-423A-8BA4-08378AFC887D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDC3D2C5-9A4E-423A-8BA4-08378AFC887D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDC3D2C5-9A4E-423A-8BA4-08378AFC887D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{009EAE72-ACCF-4A3D-B0C9-5FB728823179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009EAE72-ACCF-4A3D-B0C9-5FB728823179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009EAE72-ACCF-4A3D-B0C9-5FB728823179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009EAE72-ACCF-4A3D-B0C9-5FB728823179}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
